@@ -11,7 +11,7 @@ export class MyMainService {
         this.products = [
             {
                 "id": "001",
-                "name": "Mi LED Smart TV 4A 108 cm (43)",
+                "name": "Handwash",
                 "price": 22999,
                 "isAdded":false,
                 "image": "assets/images/handwash.jpg",
@@ -19,7 +19,7 @@ export class MyMainService {
             },
             {
                 "id": "002",
-                "name": "Vu 80cm (32 inch) HD Ready LED TV",
+                "name": "Immunity",
                 "price": 15999,
                 "isAdded":false,
                 "image": "assets/images/immunity.jpg",
@@ -27,7 +27,7 @@ export class MyMainService {
             },
             {
                 "id": "003",
-                "name": "Micromax 81cm (32 inch) HD Ready LED TV",
+                "name": "Mask",
                 "price": 11999,
                 "isAdded":false,
                 "image": "assets/images/mask.png",
@@ -35,7 +35,7 @@ export class MyMainService {
             },
             {
                 "id": "004",
-                "name": "Thomson LED Smart TV B9 Pro 80cm (32)",
+                "name": "PPE-Kit",
                 "price": 24000,
                 "isAdded":false,
                 "image": "assets/images/PPE-kit-1.jpeg",
@@ -43,7 +43,7 @@ export class MyMainService {
             },
             {
                 "id": "005",
-                "name": "Panasonic 109cm (43 inch) Ultra HD (4K) LED TV",
+                "name": "Sanitizer",
                 "price": 41000,
                 "isAdded":false,
                 "image": "assets/images/sanitizer.jpg",
@@ -51,7 +51,7 @@ export class MyMainService {
             },
             {
                 "id": "006",
-                "name": "Panasonic 109cm (43 inch) Ultra HD (4K) LED TV",
+                "name": "First Aid Kit",
                 "price": 15400,
                 "isAdded":false,
                 "image": "assets/images/travelKit.jpg",
