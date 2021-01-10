@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 
 
 @Injectable()
 export class MyMainService {
     products: any = [];
     cartItems : any = [];
+    @Output() valueChange = new EventEmitter();
 
     constructor() {
 
@@ -12,52 +13,58 @@ export class MyMainService {
             {
                 "id": "001",
                 "name": "Handwash",
-                "price": 22999,
+                "price": 120,
                 "isAdded":false,
                 "image": "assets/images/handwash.jpg",
-                "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+                "description": "Use the Klenz Hand Wash and keep your hands germ-free and refreshed for a long time."
             },
             {
                 "id": "002",
                 "name": "Immunity",
-                "price": 15999,
+                "price": 110,
                 "isAdded":false,
                 "image": "assets/images/immunity.jpg",
-                "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+                "description": "Yashad in Ayurveda means pure Zinc, which is scientifically processed in Aloe vera juice to create bioactive."
             },
             {
                 "id": "003",
                 "name": "Mask",
-                "price": 11999,
+                "price": 150,
                 "isAdded":false,
                 "image": "assets/images/mask.png",
-                "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+                "description": "NEA Face Protective Masks Are High Quality Certified CE FDA ISO Masks ,Made with N95 ,FFP2 standards."
             },
             {
                 "id": "004",
                 "name": "PPE-Kit",
-                "price": 24000,
+                "price": 1000,
                 "isAdded":false,
                 "image": "assets/images/PPE-kit-1.jpeg",
-                "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+                "description": "The PPE kit covers you from head to toe to reduce exposure to disease causing germs and keep you safe."
             },
             {
                 "id": "005",
                 "name": "Sanitizer",
-                "price": 41000,
+                "price": 200,
                 "isAdded":false,
                 "image": "assets/images/sanitizer.jpg",
-                "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+                "description": "While we always remember to sanitize our hands, we often forget about germs on surfaces that are frequently touched. "
             },
             {
                 "id": "006",
                 "name": "First Aid Kit",
-                "price": 15400,
+                "price": 500,
                 "isAdded":false,
                 "image": "assets/images/travelKit.jpg",
-                "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+                "description": "Made from high quality and durable plastic, this medical box features a see-through lid for easy accessibility."
             }
         ]
+
+
+    }
+
+    valueChangeEvent(){
+      this.valueChange.emit();
 
 
     }
@@ -72,14 +79,14 @@ export class MyMainService {
     }
 
     setProducts(products) {
-        this.cartItems.push(...products);
-        this.products.next(products);
+        this.cartItems.push(products);
+        // this.products.next(products);
       }
     
       //  Add single product to the cart
       addProductToCart(product) {
         this.cartItems.push(product);
-        this.products.next(this.cartItems);
+        // this.products.next(this.cartItems);
       }
       
     // Remove single product from the cart
@@ -89,15 +96,25 @@ export class MyMainService {
         this.cartItems.splice(index, 1);
       }
     });
+    this.products.map((item, index) => {
+      if (item.id === productId) {
+        item.isAdded=false ;
+      }
+    });
 
     //  Update Observable value
-    this.products.next(this.cartItems);
+    // this.products.next(this.cartItems);
   }
 
   // Remove all the items added to the cart
   emptryCart() {
     this.cartItems.length = 0;
-    this.products.next(this.cartItems);
+    // this.products.next(this.cartItems);
+    this.products.map((item, index) => {
+       
+        item.isAdded=false ;
+      
+    });
   }
 
   // Calculate total price on item added to the cart

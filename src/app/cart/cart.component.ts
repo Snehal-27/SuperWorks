@@ -7,40 +7,37 @@ import { MyMainService } from '../main.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  cartItems: any;
+  totalAmount: any;
 
-  //  cartItems;
-  //  totalAmmount;
 
   constructor(
     private mySharedService: MyMainService
-  ) { }
+  ) {
+    this.cartItems = this.mySharedService.getCartItem();
+    this.totalAmount = this.mySharedService.getTotalPrice();
+  }
 
   ngOnInit() {
 
-    // this.mySharedService.getProducts().subscribe(data => {
-    //   this.cartItems = data;
-
-    //   this.totalAmmount = this.mySharedService.getTotalPrice();
-    // });
 
   }
+  ngAfterViewInit(){
+    this.mySharedService.valueChange.subscribe(
+      ()=>{
+        this.totalAmount = this.mySharedService.getTotalPrice();
 
-  // Remove item from cart list
-  // removeItemFromCart(productId) {
-  //   /* this.cartItems.map((item, index) => {
-  //     if (item.id === productId) {
-  //       this.cartItems.splice(index, 1);
-  //     }
-  //   });
+      }
+    )
+  }
 
-  //   this.mySharedService.setProducts(this.cartItems); */
+  removeItemFromCart(productId) {
 
-  //   this.mySharedService.removeProductFromCart(productId);
+    this.mySharedService.removeProductFromCart(productId);
+  }
 
-  // }
-
-  // emptyCart() {
-  //   this.mySharedService.emptryCart();
-  // }
+  emptyCart() {
+    this.mySharedService.emptryCart();
+  }
 
 }
