@@ -34,6 +34,8 @@ export class CartComponent implements OnInit {
   removeItemFromCart(productId) {
 
     this.mySharedService.removeProductFromCart(productId);
+    this.mySharedService.valueChangeEvent();
+
   }
 
   emptyCart() {
