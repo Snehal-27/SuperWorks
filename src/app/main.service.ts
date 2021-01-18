@@ -102,8 +102,7 @@ export class MyMainService {
       }
     });
 
-    //  Update Observable value
-    // this.products.next(this.cartItems);
+   
   }
 
   // Remove all the items added to the cart
