@@ -117,6 +117,8 @@ export class MyMainService {
         item.isAdded=false ;
       
     });
+    this.cartItems.length = 0;
+
   }
 
   // Calculate total price on item added to the cart
