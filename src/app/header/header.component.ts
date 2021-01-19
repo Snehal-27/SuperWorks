@@ -15,11 +15,16 @@ export class HeaderComponent implements OnInit {
     // this.cartProductCount = this.mySharedService.getCartItem().length;
   }
   ngAfterViewInit(){
+    this.mySharedService.emptyCart.subscribe(
+      ()=>{
+        this.cartProductCount = this.mySharedService.getCartItem().length;
+      }
+    )
     this.mySharedService.valueChange.subscribe(
       ()=>{
         this.cartProductCount = this.mySharedService.getCartItem().length;
-
       }
     )
   }
+  
 }

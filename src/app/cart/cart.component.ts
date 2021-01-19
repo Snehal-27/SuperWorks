@@ -40,6 +40,7 @@ export class CartComponent implements OnInit {
 
   emptyCart() {
     this.mySharedService.emptryCart();
+    this.mySharedService.emptyCartEvent();
   }
 
 }

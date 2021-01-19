@@ -6,7 +6,7 @@ export class MyMainService {
     products: any = [];
     cartItems : any = [];
     @Output() valueChange = new EventEmitter();
-
+    @Output() emptyCart = new EventEmitter();
     constructor() {
 
         this.products = [
@@ -69,6 +69,10 @@ export class MyMainService {
 
     }
 
+    emptyCartEvent(){
+      this.emptyCart.emit();
+    }
+
     getProducts() {
         return this.products;
 
@@ -107,7 +111,6 @@ export class MyMainService {
 
   // Remove all the items added to the cart
   emptryCart() {
-    this.cartItems.length = 0;
     // this.products.next(this.cartItems);
     this.products.map((item, index) => {
        
